@@ -8,8 +8,9 @@
     - [Compilation](#Compilation)
     - [Testing](#Testing)
       - [Safe Condition](#Safe-Condition-Tests)
+      	- [Multithreaded Safe Condition Test](#Multithreaded-Safe-Condition-Test)
       - [Crash Recovery](#Journaling-Tests)
-      	- [Multithreaded Journal Test](# Multithreaded-Journal-Test)
+      	- [Multithreaded Journal Test](#Multithreaded-Journal-Test)
  - [Known Issues and Missing Features](#Known-Issues-and-Missing-Features)
 
 
