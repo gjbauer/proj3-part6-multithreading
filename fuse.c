@@ -394,6 +394,7 @@ nbtrfs_write(const char *path, const char *buf, size_t size, off_t offset, struc
         
         // Get pointer to the page data
         block_type_t *block_type = (block_type_t*) get_block(disk, cache_s, node.inode_number, pnum);
+        increase_pin_count(disk, cache_s, pair->inode_number, pnum);
         // For data blocks, we need to skip the block type header
         char *data_area = (char*)(block_type + 1);
         
@@ -408,6 +409,7 @@ nbtrfs_write(const char *path, const char *buf, size_t size, off_t offset, struc
         
         // Mark the page as dirty since we modified it
         write_block(disk, cache_s, block_type, node.inode_number, pnum);
+        decrease_pin_count(disk, cache_s, pair->inode_number, pnum);
         
         // Update counters
         bytes_written += bytes_to_write;
